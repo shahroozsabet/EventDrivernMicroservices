@@ -54,7 +54,7 @@ public class MockKafkaStreamRunner implements StreamRunner {
             "malesuada",
             "libero"
     };
-    private static final String tweetAsRawJson = """
+    private static final String TWEET_AS_RAW_JSON = """
             {"created_at":"{0}","id":"{1}","text":"{2}","user":{"id":"{3}"}}""";
     private static final String TWITTER_STATUS_DATE_FORMAT = "EEE MMM dd HH:mm:ss zzz yyyy";
     private final TwitterToKafkaServiceConfigData twitterToKafkaServiceConfigData;
@@ -104,7 +104,7 @@ public class MockKafkaStreamRunner implements StreamRunner {
     }
 
     private String formatTweetAsJsonWithParams(String[] params) {
-        String tweet = tweetAsRawJson;
+        String tweet = TWEET_AS_RAW_JSON;
 
         for (int i = 0; i < params.length; i++) {
             tweet = tweet.replace("{" + i + "}", params[i]);
