@@ -20,7 +20,7 @@ import static org.mockito.Mockito.doNothing;
 @ActiveProfiles("test")
 @DirtiesContext
 @EmbeddedKafka(partitions = 1, brokerProperties = {"listeners=PLAINTEXT://localhost:9092", "port=9092"})
-public class TwitterToKafkaServiceApplicationTest {
+public class TwitterToKafkaServiceApplicationIT {
 
     @Autowired
     private KafkaProducer<Long, TwitterAvroModel> kafkaProducer;
