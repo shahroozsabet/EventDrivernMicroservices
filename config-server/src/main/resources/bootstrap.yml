@@ -6,5 +6,12 @@ spring:
       server:
         git:
           uri: https://github.com/shahroozsabet/config-server-repository
+          username: shahrooz.sabet
+          password: '{cipher}804fca051f369c0dec275aa7321a1da8176cfc063d41132a66471cc0453a99bf47bed2e5e02713b7801d495396d5bde3fff827a28a335c69101fcc059b61a9cb'
+          default-label: master
           clone-on-start: true
       fail-fast: true
+  security:
+    user:
+      name: spring_cloud_user
+      password: '{cipher}664d6db4f9d47f6c8a830ec5b6a4095fe48e98061210a1d78c862e6b0633a6881a9d5c1abf361cc3f74483f0a8a5da04'
