@@ -7,7 +7,7 @@ spring:
         git:
           uri: https://github.com/shahroozsabet/config-server-repository
           username: shahrooz.sabet
-          password: '{cipher}804fca051f369c0dec275aa7321a1da8176cfc063d41132a66471cc0453a99bf47bed2e5e02713b7801d495396d5bde3fff827a28a335c69101fcc059b61a9cb'
+          password: '{cipher}32444df75afae5a15b9cb968b1dc64010219ec3529e121a4d15171899b64e5848f0b7d25677c098b0cf101a876f7f452a2f1446898d63f83168e0b583773980b'
           default-label: master
           clone-on-start: true
       fail-fast: true
