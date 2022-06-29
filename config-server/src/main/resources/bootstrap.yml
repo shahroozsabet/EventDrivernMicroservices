@@ -6,5 +6,12 @@ spring:
       server:
         git:
           uri: https://github.com/shahroozsabet/config-server-repository
+          default-label: master
+          username: shahrooz.sabet
+          password: ENC(B2lRyhvr15lFK3jpg0K7SBN8GasEwdSvVsVmFPtvXFUIFTWhQ/CanFc820p5Xo6gXLiYq+zfrfFZNSznc6tIf4fr/xAJb+9WKgC0fCjmHzw=)
           clone-on-start: true
       fail-fast: true
+  security:
+    user:
+      name: spring_cloud_user
+      password: ENC(R9IAW8vy4qoTRL4/wtYokzAUe/afBpFXLKKBcTPeMs64/sEXtKt8ohOdYyIesrubFy2/nIzPrZ1Cm/ZJJSSy5Q==)
