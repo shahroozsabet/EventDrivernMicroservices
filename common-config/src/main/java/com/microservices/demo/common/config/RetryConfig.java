@@ -1,21 +1,20 @@
 package com.microservices.demo.common.config;
 
 import com.microservices.demo.config.RetryConfigData;
-import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.retry.backoff.ExponentialBackOffPolicy;
 import org.springframework.retry.policy.SimpleRetryPolicy;
 import org.springframework.retry.support.RetryTemplate;
 
-/**
- * Created by Shahrooz on 6/24/2022.
- */
 @Configuration
-@RequiredArgsConstructor
 public class RetryConfig {
 
-    private final RetryConfigData retryConfigData;
+    private RetryConfigData retryConfigData;
+
+    public RetryConfig(RetryConfigData configData) {
+        this.retryConfigData = configData;
+    }
 
     @Bean
     public RetryTemplate retryTemplate() {
@@ -35,5 +34,4 @@ public class RetryConfig {
 
         return retryTemplate;
     }
-
 }

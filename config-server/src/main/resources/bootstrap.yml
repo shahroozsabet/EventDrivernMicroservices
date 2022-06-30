@@ -5,13 +5,13 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/shahroozsabet/config-server-repository
-          username: shahrooz.sabet
-          password: '{cipher}32444df75afae5a15b9cb968b1dc64010219ec3529e121a4d15171899b64e5848f0b7d25677c098b0cf101a876f7f452a2f1446898d63f83168e0b583773980b'
-          default-label: master
+          uri: https://github.com/agelenler/spring-cloud-config-server-repository
+          default-label: main
+          username: agelenler
+          password: ****
           clone-on-start: true
-      fail-fast: true
+    fail-fast: true
   security:
     user:
       name: spring_cloud_user
-      password: '{cipher}664d6db4f9d47f6c8a830ec5b6a4095fe48e98061210a1d78c862e6b0633a6881a9d5c1abf361cc3f74483f0a8a5da04'
+      password: '{cipher}c0d85293cb01a46b3b629a12e5620f4e9d00d4ede8bdf248cf5b83e23f4536501e4b34a8d56b7a34fcee17aa01d05330'

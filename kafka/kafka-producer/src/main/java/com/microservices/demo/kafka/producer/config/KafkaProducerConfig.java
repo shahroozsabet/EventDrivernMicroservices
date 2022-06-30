@@ -2,7 +2,6 @@ package com.microservices.demo.kafka.producer.config;
 
 import com.microservices.demo.config.KafkaConfigData;
 import com.microservices.demo.config.KafkaProducerConfigData;
-import lombok.RequiredArgsConstructor;
 import org.apache.avro.specific.SpecificRecordBase;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.springframework.context.annotation.Bean;
@@ -15,15 +14,17 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by Shahrooz on 6/27/2022.
- */
 @Configuration
-@RequiredArgsConstructor
 public class KafkaProducerConfig<K extends Serializable, V extends SpecificRecordBase> {
 
     private final KafkaConfigData kafkaConfigData;
+
     private final KafkaProducerConfigData kafkaProducerConfigData;
+
+    public KafkaProducerConfig(KafkaConfigData configData, KafkaProducerConfigData producerConfigData) {
+        this.kafkaConfigData = configData;
+        this.kafkaProducerConfigData = producerConfigData;
+    }
 
     @Bean
     public Map<String, Object> producerConfig() {
@@ -51,5 +52,4 @@ public class KafkaProducerConfig<K extends Serializable, V extends SpecificRecor
     public KafkaTemplate<K, V> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
     }
-
 }

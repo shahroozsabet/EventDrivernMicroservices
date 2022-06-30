@@ -4,9 +4,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
-/**
- * Created by Shahrooz on 6/29/2022.
- */
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 

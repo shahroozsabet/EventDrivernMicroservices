@@ -6,9 +6,6 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.List;
 
-/**
- * Created by Shahrooz on 6/24/2022.
- */
 @Data
 @Configuration
 @ConfigurationProperties(prefix = "kafka-config")

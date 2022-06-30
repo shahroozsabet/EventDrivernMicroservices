@@ -4,5 +4,4 @@
     <property name="APP_NAME" value="config-server"/>
 
     <include resource="logback-common.xml"/>
-
 </configuration>
