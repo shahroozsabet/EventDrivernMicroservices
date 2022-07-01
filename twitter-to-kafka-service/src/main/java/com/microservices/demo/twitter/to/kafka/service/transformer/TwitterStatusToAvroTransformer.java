@@ -4,9 +4,6 @@ import com.microservices.demo.kafka.avro.model.TwitterAvroModel;
 import org.springframework.stereotype.Component;
 import twitter4j.Status;
 
-/**
- * Created by Shahrooz on 6/27/2022.
- */
 @Component
 public class TwitterStatusToAvroTransformer {
 

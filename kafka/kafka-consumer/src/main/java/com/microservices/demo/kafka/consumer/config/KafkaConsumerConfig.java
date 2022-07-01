@@ -2,7 +2,6 @@ package com.microservices.demo.kafka.consumer.config;
 
 import com.microservices.demo.config.KafkaConfigData;
 import com.microservices.demo.config.KafkaConsumerConfigData;
-import lombok.RequiredArgsConstructor;
 import org.apache.avro.specific.SpecificRecordBase;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.springframework.context.annotation.Bean;
@@ -20,11 +19,16 @@ import java.util.Map;
 
 @EnableKafka
 @Configuration
-@RequiredArgsConstructor
 public class KafkaConsumerConfig<K extends Serializable, V extends SpecificRecordBase> {
 
     private final KafkaConfigData kafkaConfigData;
+
     private final KafkaConsumerConfigData kafkaConsumerConfigData;
+
+    public KafkaConsumerConfig(KafkaConfigData configData, KafkaConsumerConfigData consumerConfigData) {
+        this.kafkaConfigData = configData;
+        this.kafkaConsumerConfigData = consumerConfigData;
+    }
 
     @Bean
     public Map<String, Object> consumerConfigs() {

@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: twitter-to-kafka-service
+  profiles:
+    active: twitter_to_kafka
+  config:
+    import: 'configserver:'
+  cloud:
+    config:
+      name: twitter-to-kafka-service,config-client
+      username: spring_cloud_user
+      password: '1234'
+
+log:
+  app-name: twitter-to-kafka-service
+
+twitter-to-kafka-service:
+  enable-mock-tweets: false
+
+test.key: '{cipher}bb0f4707be41fa106298b4b8494d8c8156ada307e8a39f6a136843aee4dded2c6dcf8293618d888f2dac1e494eb63960'
