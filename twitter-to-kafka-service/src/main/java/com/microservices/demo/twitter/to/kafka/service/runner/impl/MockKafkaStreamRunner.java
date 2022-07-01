@@ -24,13 +24,15 @@ import java.util.concurrent.ThreadLocalRandom;
 public class MockKafkaStreamRunner implements StreamRunner {
 
     private static final Logger LOG = LoggerFactory.getLogger(MockKafkaStreamRunner.class);
+
+    private final TwitterToKafkaServiceConfigData twitterToKafkaServiceConfigData;
+
     private static final String tweetAsRawJson = "{" +
                                                  "\"created_at\":\"{0}\"," +
                                                  "\"id\":\"{1}\"," +
                                                  "\"text\":\"{2}\"," +
                                                  "\"user\":{\"id\":\"{3}\"}" +
                                                  "}";
-    private final TwitterToKafkaServiceConfigData twitterToKafkaServiceConfigData;
 
     private static final Random RANDOM = new Random();
 

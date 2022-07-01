@@ -1,5 +1,7 @@
 # Running the application
-- Please enter the correct credentials in twitter4j.properties file.
+- Please enter the correct credentials in twitter4j.properties file in twitter-to-kafka-service
+  and enter your github password and url on bootstrap.yml file of config-server
 - Then run mvn install -DskipTests command
-- Check new KafkaConsumerConfigData class, then kafka-consumer module, where we added the consumer config. Check also
-  the new configuration file in config server repo, config-client-kafka_to_elastic.yml
+- Then run docker-compose up command in docker-compose folder
+- Then run kafka-to-elastic-service in intelliJ
+- Check new kafka-to-elastic-service, which is the 2nd microservice in our system
