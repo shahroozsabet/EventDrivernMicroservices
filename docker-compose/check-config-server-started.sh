@@ -1,5 +1,4 @@
 #!/bin/bash
-# check-config-server-started.sh
 
 apt-get update -y
 
