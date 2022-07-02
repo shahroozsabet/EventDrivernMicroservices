@@ -4,4 +4,4 @@
 - Then run mvn install -DskipTests command
 - Then run docker-compose up command in docker-compose folder
 - Then run kafka-to-elastic-service in intelliJ
-- Check new kafka-to-elastic-service, which is the 2nd microservice in our system
+- Check onAppStarted method in TwitterKafkaConsumer, where we implemented initialization logic
