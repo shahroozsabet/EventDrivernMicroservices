@@ -4,4 +4,4 @@
 - Then run mvn install -DskipTests command
 - Then run docker-compose up command in docker-compose folder
 - Then run kafka-to-elastic-service in intelliJ
-- Check elastic config module, where we added ElasticsearchConfig
+- Check elastic index client module, where we added ElasticIndexClient and ElasticIndexUtil

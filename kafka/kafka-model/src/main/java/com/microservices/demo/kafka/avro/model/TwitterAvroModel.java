@@ -14,10 +14,9 @@ import org.apache.avro.specific.SpecificData;
 public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = -5190598237215532904L;
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"TwitterAvroModel\",\"namespace\":\"com.microservices.demo.kafka.avro.model\",\"fields\":[{\"name\":\"userId\",\"type\":\"long\"},{\"name\":\"id\",\"type\":\"long\"},{\"name\":\"text\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"createdAt\",\"type\":[\"null\",\"long\"],\"logicalType\":[\"null\",\"date\"]}]}");
+  private static SpecificData MODEL$ = new SpecificData();
   private static final BinaryMessageEncoder<TwitterAvroModel> ENCODER =
           new BinaryMessageEncoder<TwitterAvroModel>(MODEL$, SCHEMA$);
-
-  private static SpecificData MODEL$ = new SpecificData();
   private static final BinaryMessageDecoder<TwitterAvroModel> DECODER =
           new BinaryMessageDecoder<TwitterAvroModel>(MODEL$, SCHEMA$);
   @SuppressWarnings("unchecked")
@@ -26,7 +25,6 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
 
   /**
    * Return the BinaryMessageEncoder instance used by this class.
-   *
    * @return the message encoder used by this class
    */
   public static BinaryMessageEncoder<TwitterAvroModel> getEncoder() {
@@ -224,7 +222,7 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
         return text;
       case 3:
         return createdAt;
-    default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
+      default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
 
@@ -344,7 +342,7 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
             break;
 
           default:
-          throw new java.io.IOException("Corrupt ResolvingDecoder.");
+            throw new java.io.IOException("Corrupt ResolvingDecoder.");
         }
       }
     }
@@ -438,7 +436,7 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
 
     /**
      * Checks whether the 'userId' field has been set.
-      * @return True if the 'userId' field has been set, false otherwise.
+     * @return True if the 'userId' field has been set, false otherwise.
       */
     public boolean hasUserId() {
       return fieldSetFlags()[0];
@@ -477,7 +475,7 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
 
     /**
      * Checks whether the 'id' field has been set.
-      * @return True if the 'id' field has been set, false otherwise.
+     * @return True if the 'id' field has been set, false otherwise.
       */
     public boolean hasId() {
       return fieldSetFlags()[1];
@@ -516,7 +514,7 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
 
     /**
      * Checks whether the 'text' field has been set.
-      * @return True if the 'text' field has been set, false otherwise.
+     * @return True if the 'text' field has been set, false otherwise.
       */
     public boolean hasText() {
       return fieldSetFlags()[2];
@@ -534,9 +532,9 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
     }
 
     /**
-      * Gets the value of the 'createdAt' field.
+     * Gets the value of the 'createdAt' field.
       * @return The value.
-     */
+      */
     public java.lang.Long getCreatedAt() {
       return createdAt;
     }
@@ -544,7 +542,7 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
 
     /**
      * Sets the value of the 'createdAt' field.
-      * @param value The value of 'createdAt'.
+     * @param value The value of 'createdAt'.
       * @return This builder.
       */
     public com.microservices.demo.kafka.avro.model.TwitterAvroModel.Builder setCreatedAt(java.lang.Long value) {
@@ -556,8 +554,8 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
 
     /**
      * Checks whether the 'createdAt' field has been set.
-      * @return True if the 'createdAt' field has been set, false otherwise.
-     */
+     * @return True if the 'createdAt' field has been set, false otherwise.
+      */
     public boolean hasCreatedAt() {
       return fieldSetFlags()[3];
     }
