@@ -37,9 +37,8 @@ public class ElasticsearchConfig extends AbstractElasticsearchConfiguration {
                 )).setRequestConfigCallback(
                         requestConfigBuilder ->
                                 requestConfigBuilder
-                                        .setConnectTimeout(elasticConfigData.getConnectionTimeout())
-                                        .setSocketTimeout(elasticConfigData.getSocketTimeout())
-
+                                        .setConnectTimeout(elasticConfigData.getConnectTimeoutMs())
+                                        .setSocketTimeout(elasticConfigData.getSocketTimeoutMs())
                 )
         );
     }
@@ -48,4 +47,5 @@ public class ElasticsearchConfig extends AbstractElasticsearchConfiguration {
     public ElasticsearchOperations elasticsearchTemplate() {
         return new ElasticsearchRestTemplate(elasticsearchClient());
     }
+
 }
