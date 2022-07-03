@@ -13,6 +13,7 @@
 		<module>common-config</module>
 		<module>config-server</module>
 		<module>kafka-to-elastic-service</module>
+		<module>elastic</module>
 	</modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>

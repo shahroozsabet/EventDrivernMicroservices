@@ -14,9 +14,10 @@ import org.apache.avro.specific.SpecificData;
 public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = -5190598237215532904L;
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"TwitterAvroModel\",\"namespace\":\"com.microservices.demo.kafka.avro.model\",\"fields\":[{\"name\":\"userId\",\"type\":\"long\"},{\"name\":\"id\",\"type\":\"long\"},{\"name\":\"text\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"createdAt\",\"type\":[\"null\",\"long\"],\"logicalType\":[\"null\",\"date\"]}]}");
-  private static SpecificData MODEL$ = new SpecificData();
   private static final BinaryMessageEncoder<TwitterAvroModel> ENCODER =
           new BinaryMessageEncoder<TwitterAvroModel>(MODEL$, SCHEMA$);
+
+  private static SpecificData MODEL$ = new SpecificData();
   private static final BinaryMessageDecoder<TwitterAvroModel> DECODER =
           new BinaryMessageDecoder<TwitterAvroModel>(MODEL$, SCHEMA$);
   @SuppressWarnings("unchecked")
@@ -25,6 +26,7 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
 
   /**
    * Return the BinaryMessageEncoder instance used by this class.
+   *
    * @return the message encoder used by this class
    */
   public static BinaryMessageEncoder<TwitterAvroModel> getEncoder() {
@@ -67,10 +69,9 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
 
   /**
    * All-args constructor.
-   *
-   * @param userId    The new value for userId
-   * @param id        The new value for id
-   * @param text      The new value for text
+   * @param userId The new value for userId
+   * @param id The new value for id
+   * @param text The new value for text
    * @param createdAt The new value for createdAt
    */
   public TwitterAvroModel(java.lang.Long userId, java.lang.Long id, java.lang.String text, java.lang.Long createdAt) {
@@ -207,8 +208,7 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
     return ENCODER.encode(this);
   }
 
-  public org.apache.avro.specific.SpecificData getSpecificData() {
-    return MODEL$; }
+  public org.apache.avro.specific.SpecificData getSpecificData() { return MODEL$; }
 
   public org.apache.avro.Schema getSchema() { return SCHEMA$; }
 
@@ -223,7 +223,8 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
         return text;
       case 3:
         return createdAt;
-      default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
+      default:
+        throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
 
@@ -475,7 +476,7 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
     }
 
     /**
-      * Checks whether the 'id' field has been set.
+     * Checks whether the 'id' field has been set.
      * @return True if the 'id' field has been set, false otherwise.
       */
     public boolean hasId() {
