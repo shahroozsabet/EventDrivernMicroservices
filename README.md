@@ -4,4 +4,4 @@
 - Then run mvn install -DskipTests command
 - Then run docker-compose up command in docker-compose folder
 - Then run kafka-to-elastic-service in intelliJ
-- Check elastic index client module, where we added TwitterElasticsearchIndexRepository to use repository in indexing
+- Check kafka to elastic service, where we used the elastic modules to index the data into elasticsearch
