@@ -44,7 +44,6 @@
         <spring-cloud-dependencies.version>2021.0.3</spring-cloud-dependencies.version>
     </properties>
 
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -183,6 +182,11 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-security</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
                 <version>${spring-boot.version}</version>
             </dependency>
         </dependencies>
