@@ -40,7 +40,7 @@ public class TwitterKafkaProducer implements KafkaProducer<Long, TwitterAvroMode
     }
 
     private void addCallback(String topicName, TwitterAvroModel message, ListenableFuture<SendResult<Long, TwitterAvroModel>> kafkaResultFuture) {
-        kafkaResultFuture.addCallback(new ListenableFutureCallback<SendResult<Long, TwitterAvroModel>>() {
+        kafkaResultFuture.addCallback(new ListenableFutureCallback<>() {
             @Override
             public void onFailure(Throwable throwable) {
                 log.error("Error while sending message {} to topic {}", message.toString(), topicName, throwable);
