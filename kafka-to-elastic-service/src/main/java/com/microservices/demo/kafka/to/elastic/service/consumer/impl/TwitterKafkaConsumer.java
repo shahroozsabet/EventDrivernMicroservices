@@ -28,7 +28,7 @@ import java.util.Objects;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class TwitterKafkaConsumer implements KafkaConsumer<Long, TwitterAvroModel> {
+public class TwitterKafkaConsumer implements KafkaConsumer<TwitterAvroModel> {
 
     private final KafkaListenerEndpointRegistry kafkaListenerEndpointRegistry;
     private final KafkaAdminClient kafkaAdminClient;

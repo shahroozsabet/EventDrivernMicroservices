@@ -97,7 +97,7 @@ public class KafkaAdminClient {
 
     private void checkMaxRetry(int retry, Integer maxRetry) {
         if (retry > maxRetry) {
-            throw new KafkaClientException("Reached max number of retry for reading kafka topic(s)");
+            throw new KafkaClientException("Reached max number of retry for reading kafka topic(s).");
         }
     }
 
@@ -122,7 +122,7 @@ public class KafkaAdminClient {
         try {
             topics = retryTemplate.execute(this::doGetTopics);
         } catch (Throwable t) {
-            throw new KafkaClientException("Reached max number of retry for reading kafka topic(s)", t);
+            throw new KafkaClientException("Reached max number of retry for reading kafka topic(s).", t);
         }
         return topics;
     }

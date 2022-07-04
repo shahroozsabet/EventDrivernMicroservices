@@ -5,3 +5,10 @@ logging:
   level:
     ROOT: INFO
     org.spring.framework.cloud.config: DEBUG
+
+spring:
+  application:
+    name: configserver
+
+log:
+  app-name: config-server

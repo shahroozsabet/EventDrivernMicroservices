@@ -9,14 +9,14 @@ import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 
-import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 
 /**
  * Created by Shahrooz on 7/3/2022.
  */
 @Data
 @Builder
-@Document(indexName = "#{elasticConfigData.indexName}")
+@Document(indexName = "#{@elasticConfigData.indexName}")
 public class TwitterIndexModel implements IndexModel {
 
     @JsonProperty
@@ -29,6 +29,5 @@ public class TwitterIndexModel implements IndexModel {
     @Field(type = FieldType.Date, format = {}, pattern = "uuuu-MM-dd'T'HH:mm:ssZZ")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "uuuu-MM-dd'T'HH:mm:ssZZ")
     @JsonProperty
-    private LocalDateTime createdAt;
-
+    private ZonedDateTime createdAt;
 }

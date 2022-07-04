@@ -37,7 +37,6 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
      */
     public TwitterAvroModel() {
     }
-
     /**
      * All-args constructor.
      *
@@ -59,7 +58,6 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
 
     /**
      * Return the BinaryMessageEncoder instance used by this class.
-     *
      * @return the message encoder used by this class
      */
     public static BinaryMessageEncoder<TwitterAvroModel> getEncoder() {
@@ -68,7 +66,6 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
 
     /**
      * Return the BinaryMessageDecoder instance used by this class.
-     *
      * @return the message decoder used by this class
      */
     public static BinaryMessageDecoder<TwitterAvroModel> getDecoder() {
@@ -77,7 +74,6 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
 
     /**
      * Create a new BinaryMessageDecoder instance for this class that uses the specified {@link SchemaStore}.
-     *
      * @param resolver a {@link SchemaStore} used to find schemas by fingerprint
      * @return a BinaryMessageDecoder instance for this class backed by the given SchemaStore
      */
@@ -87,7 +83,6 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
 
     /**
      * Deserializes a TwitterAvroModel from a ByteBuffer.
-     *
      * @param b a byte buffer holding serialized data for an instance of this class
      * @return a TwitterAvroModel instance decoded from the given buffer
      * @throws java.io.IOException if the given bytes could not be deserialized into an instance of this class
@@ -99,7 +94,6 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
 
     /**
      * Creates a new TwitterAvroModel RecordBuilder.
-     *
      * @return A new TwitterAvroModel RecordBuilder
      */
     public static com.microservices.demo.kafka.avro.model.TwitterAvroModel.Builder newBuilder() {
@@ -108,7 +102,6 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
 
     /**
      * Creates a new TwitterAvroModel RecordBuilder by copying an existing Builder.
-     *
      * @param other The existing builder to copy.
      * @return A new TwitterAvroModel RecordBuilder
      */
@@ -122,7 +115,6 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
 
     /**
      * Creates a new TwitterAvroModel RecordBuilder by copying an existing TwitterAvroModel instance.
-     *
      * @param other The existing instance to copy.
      * @return A new TwitterAvroModel RecordBuilder
      */
@@ -136,7 +128,6 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
 
     /**
      * Serializes this TwitterAvroModel to a ByteBuffer.
-     *
      * @return a buffer holding the serialized data for this instance
      * @throws java.io.IOException if this instance could not be serialized
      */
@@ -191,7 +182,6 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
 
     /**
      * Gets the value of the 'userId' field.
-     *
      * @return The value of the 'userId' field.
      */
     public long getUserId() {
@@ -200,7 +190,6 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
 
     /**
      * Sets the value of the 'userId' field.
-     *
      * @param value the value to set.
      */
     public void setUserId(long value) {
@@ -209,7 +198,6 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
 
     /**
      * Gets the value of the 'id' field.
-     *
      * @return The value of the 'id' field.
      */
     public long getId() {
@@ -218,7 +206,6 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
 
     /**
      * Sets the value of the 'id' field.
-     *
      * @param value the value to set.
      */
     public void setId(long value) {
@@ -227,7 +214,6 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
 
     /**
      * Gets the value of the 'text' field.
-     *
      * @return The value of the 'text' field.
      */
     public java.lang.String getText() {
@@ -236,7 +222,6 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
 
     /**
      * Sets the value of the 'text' field.
-     *
      * @param value the value to set.
      */
     public void setText(java.lang.String value) {
@@ -245,7 +230,6 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
 
     /**
      * Gets the value of the 'createdAt' field.
-     *
      * @return The value of the 'createdAt' field.
      */
     public java.lang.Long getCreatedAt() {
@@ -254,7 +238,6 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
 
     /**
      * Sets the value of the 'createdAt' field.
-     *
      * @param value the value to set.
      */
     public void setCreatedAt(java.lang.Long value) {
@@ -374,16 +357,13 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
         private java.lang.String text;
         private java.lang.Long createdAt;
 
-        /**
-         * Creates a new Builder
-         */
+        /** Creates a new Builder */
         private Builder() {
             super(SCHEMA$, MODEL$);
         }
 
         /**
          * Creates a Builder by copying an existing Builder.
-         *
          * @param other The existing Builder to copy.
          */
         private Builder(com.microservices.demo.kafka.avro.model.TwitterAvroModel.Builder other) {
@@ -408,7 +388,6 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
 
         /**
          * Creates a Builder by copying an existing TwitterAvroModel instance
-         *
          * @param other The existing instance to copy.
          */
         private Builder(com.microservices.demo.kafka.avro.model.TwitterAvroModel other) {
@@ -433,7 +412,6 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
 
         /**
          * Gets the value of the 'userId' field.
-         *
          * @return The value.
          */
         public long getUserId() {
@@ -443,7 +421,6 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
 
         /**
          * Sets the value of the 'userId' field.
-         *
          * @param value The value of 'userId'.
          * @return This builder.
          */
@@ -456,7 +433,6 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
 
         /**
          * Checks whether the 'userId' field has been set.
-         *
          * @return True if the 'userId' field has been set, false otherwise.
          */
         public boolean hasUserId() {
@@ -466,7 +442,6 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
 
         /**
          * Clears the value of the 'userId' field.
-         *
          * @return This builder.
          */
         public com.microservices.demo.kafka.avro.model.TwitterAvroModel.Builder clearUserId() {
@@ -476,7 +451,6 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
 
         /**
          * Gets the value of the 'id' field.
-         *
          * @return The value.
          */
         public long getId() {
@@ -486,7 +460,6 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
 
         /**
          * Sets the value of the 'id' field.
-         *
          * @param value The value of 'id'.
          * @return This builder.
          */
@@ -499,7 +472,6 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
 
         /**
          * Checks whether the 'id' field has been set.
-         *
          * @return True if the 'id' field has been set, false otherwise.
          */
         public boolean hasId() {
@@ -509,7 +481,6 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
 
         /**
          * Clears the value of the 'id' field.
-         *
          * @return This builder.
          */
         public com.microservices.demo.kafka.avro.model.TwitterAvroModel.Builder clearId() {
@@ -519,7 +490,6 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
 
         /**
          * Gets the value of the 'text' field.
-         *
          * @return The value.
          */
         public java.lang.String getText() {
@@ -529,7 +499,6 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
 
         /**
          * Sets the value of the 'text' field.
-         *
          * @param value The value of 'text'.
          * @return This builder.
          */
@@ -542,7 +511,6 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
 
         /**
          * Checks whether the 'text' field has been set.
-         *
          * @return True if the 'text' field has been set, false otherwise.
          */
         public boolean hasText() {
@@ -552,7 +520,6 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
 
         /**
          * Clears the value of the 'text' field.
-         *
          * @return This builder.
          */
         public com.microservices.demo.kafka.avro.model.TwitterAvroModel.Builder clearText() {
@@ -563,7 +530,6 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
 
         /**
          * Gets the value of the 'createdAt' field.
-         *
          * @return The value.
          */
         public java.lang.Long getCreatedAt() {
@@ -573,7 +539,6 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
 
         /**
          * Sets the value of the 'createdAt' field.
-         *
          * @param value The value of 'createdAt'.
          * @return This builder.
          */
@@ -586,7 +551,6 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
 
         /**
          * Checks whether the 'createdAt' field has been set.
-         *
          * @return True if the 'createdAt' field has been set, false otherwise.
          */
         public boolean hasCreatedAt() {
@@ -596,7 +560,6 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
 
         /**
          * Clears the value of the 'createdAt' field.
-         *
          * @return This builder.
          */
         public com.microservices.demo.kafka.avro.model.TwitterAvroModel.Builder clearCreatedAt() {
