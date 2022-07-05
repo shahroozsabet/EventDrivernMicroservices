@@ -16,8 +16,8 @@ services:
       - kafka-broker-3
     environment:
       - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xms128m -Xmx256m"
-      - "LOGGING_LEVEL_COM_MICROSERVICES_DEMO=info"
-      - "LOGGING_LEVEL_ROOT=info"
+      - "LOGGING_LEVEL_COM_MICROSERVICES_DEMO=error"
+      - "LOGGING_LEVEL_ROOT=error"
       - "KAFKA-CONFIG_TOPIC-NAME=twitter-topic"
       - "KAFKA-CONFIG_BOOTSTRAP-SERVERS=kafka-broker-1:9092, kafka-broker-2:9092, kafka-broker-3:9092"
       - "KAFKA-CONFIG_SCHEMA-REGISTRY-URL=http://schema-registry:8081"
@@ -46,8 +46,8 @@ services:
       - elastic-3
     environment:
       - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5006 -Xms128m -Xmx256m"
-      - "LOGGING_LEVEL_COM_MICROSERVICES_DEMO=info"
-      - "LOGGING_LEVEL_ROOT=info"
+      - "LOGGING_LEVEL_COM_MICROSERVICES_DEMO=error"
+      - "LOGGING_LEVEL_ROOT=error"
       - "KAFKA-CONFIG_TOPIC-NAME=twitter-topic"
       - "KAFKA-CONFIG_BOOTSTRAP-SERVERS=kafka-broker-1:9092, kafka-broker-2:9092, kafka-broker-3:9092"
       - "KAFKA-CONFIG_SCHEMA-REGISTRY-URL=http://schema-registry:8081"
@@ -87,8 +87,8 @@ services:
       - elastic-3
     environment:
       - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5008 -Xms128m -Xmx256m"
-      - "LOGGING_LEVEL_COM_MICROSERVICES_DEMO=info"
-      - "LOGGING_LEVEL_ROOT=info"
+      - "LOGGING_LEVEL_COM_MICROSERVICES_DEMO=error"
+      - "LOGGING_LEVEL_ROOT=error"
       - "ELASTIC-CONFIG_INDEX-NAME=twitter-index"
       - "ELASTIC-CONFIG_CONNECTION-URL=http://elastic-1:9200"
       - "SERVER_PORT=8183"
