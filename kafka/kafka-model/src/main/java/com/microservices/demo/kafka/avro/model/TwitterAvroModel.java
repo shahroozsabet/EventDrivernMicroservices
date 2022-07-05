@@ -14,10 +14,9 @@ import org.apache.avro.specific.SpecificData;
 public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = -5190598237215532904L;
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"TwitterAvroModel\",\"namespace\":\"com.microservices.demo.kafka.avro.model\",\"fields\":[{\"name\":\"userId\",\"type\":\"long\"},{\"name\":\"id\",\"type\":\"long\"},{\"name\":\"text\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"createdAt\",\"type\":[\"null\",\"long\"],\"logicalType\":[\"null\",\"date\"]}]}");
+  private static SpecificData MODEL$ = new SpecificData();
   private static final BinaryMessageEncoder<TwitterAvroModel> ENCODER =
           new BinaryMessageEncoder<TwitterAvroModel>(MODEL$, SCHEMA$);
-
-  private static SpecificData MODEL$ = new SpecificData();
   private static final BinaryMessageDecoder<TwitterAvroModel> DECODER =
           new BinaryMessageDecoder<TwitterAvroModel>(MODEL$, SCHEMA$);
   @SuppressWarnings("unchecked")
@@ -206,8 +205,7 @@ public class TwitterAvroModel extends org.apache.avro.specific.SpecificRecordBas
     return ENCODER.encode(this);
   }
 
-  public org.apache.avro.specific.SpecificData getSpecificData() {
-    return MODEL$; }
+  public org.apache.avro.specific.SpecificData getSpecificData() { return MODEL$; }
 
   public org.apache.avro.Schema getSchema() { return SCHEMA$; }
 
