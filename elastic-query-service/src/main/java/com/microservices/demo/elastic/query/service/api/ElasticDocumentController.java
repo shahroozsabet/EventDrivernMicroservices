@@ -33,7 +33,7 @@ public class ElasticDocumentController {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successful response.", content = {
                     @Content(mediaType = "application/vnd.api.v1+json",
-                            schema = @Schema(implementation = ElasticQueryServiceResponseModel.class)
+                             schema = @Schema(implementation = ElasticQueryServiceResponseModel.class)
                     )
             }),
             @ApiResponse(responseCode = "400", description = "Not found."),
