@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: elastic-query-service
+  profiles:
+    active: elastic_query
+  cloud:
+    config:
+      name: elastic-query-service,config-client
+      uri: http://localhost:8888
+      username: spring_cloud_user
+      password: '{cipher}85cc8a6e8b31fc511f7c412b5088dff57520551cba13e86aeb961d30c5456168dc90abd9acfb054f9f7b9d95364e20b7'
