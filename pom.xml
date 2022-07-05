@@ -98,16 +98,16 @@
             <dependency>
                 <groupId>com.microservices.demo</groupId>
                 <artifactId>kafka-model</artifactId>
-				<version>${project.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.microservices.demo</groupId>
-				<artifactId>kafka-admin</artifactId>
-				<version>${project.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.microservices.demo</groupId>
-				<artifactId>kafka-producer</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.microservices.demo</groupId>
+                <artifactId>kafka-admin</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.microservices.demo</groupId>
+                <artifactId>kafka-producer</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 
