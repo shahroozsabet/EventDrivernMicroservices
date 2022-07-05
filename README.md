@@ -3,5 +3,5 @@
   and enter your github password and url on bootstrap.yml file of config-server
 - Then run mvn install -DskipTests command
 - Then run docker-compose up command in docker-compose folder
-- Check elastic-query-service, where we changed response model and add assembler package to enable hateoas, then
-  updated service component to use hateoas enabled assembler to be able to add hateoas links to response
+- Check elastic-query-service, where we added first used uri for api versioning and then used content negotiation
+  and leave it as the versioning of our service. Check it in controller class.
