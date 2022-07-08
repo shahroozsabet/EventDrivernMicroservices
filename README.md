@@ -3,4 +3,4 @@
   and enter your github password and url on bootstrap.yml file of config-server
 - Then run mvn install -DskipTests command
 - Then run docker-compose up command in docker-compose folder
-- Check elastic-query-web-client config package, where we added security and web client config classes
+- Check elastic-query-web-client, where we implemented the web client and call the query service

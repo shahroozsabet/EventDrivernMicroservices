@@ -29,12 +29,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
                 .antMatchers("/**").hasRole("USER")
                 .anyRequest()
-                .fullyAuthenticated()
-                .and()
-                .logout()
-                .logoutSuccessUrl("/")
-                .invalidateHttpSession(true)
-                .deleteCookies("JSESSIONID");
+                .fullyAuthenticated();
     }
 
     @Override
