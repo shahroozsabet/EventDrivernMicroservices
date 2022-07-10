@@ -1,10 +1,9 @@
-package com.microservices.demo.elastic.query.service.model;
+package com.microservices.demo.elastic.query.web.client.common.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.hateoas.RepresentationModel;
 
 import java.time.ZonedDateTime;
 
@@ -12,7 +11,7 @@ import java.time.ZonedDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ElasticQueryServiceResponseModel extends RepresentationModel<ElasticQueryServiceResponseModel> {
+public class ElasticQueryWebClientResponseModel {
     private String id;
     private Long userId;
     private String text;

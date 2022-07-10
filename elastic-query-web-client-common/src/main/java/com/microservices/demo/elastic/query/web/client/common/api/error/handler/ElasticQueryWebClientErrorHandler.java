@@ -1,7 +1,7 @@
-package com.microservices.demo.elastic.query.web.client.api.error.handler;
+package com.microservices.demo.elastic.query.web.client.common.api.error.handler;
 
 
-import com.microservices.demo.elastic.query.web.client.model.ElasticQueryWebClientRequestModel;
+import com.microservices.demo.elastic.query.web.client.common.model.ElasticQueryWebClientRequestModel;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.AccessDeniedException;
@@ -19,7 +19,7 @@ import java.util.Map;
 public class ElasticQueryWebClientErrorHandler {
 
 
-    @ExceptionHandler(org.springframework.security.access.AccessDeniedException.class)
+    @ExceptionHandler(AccessDeniedException.class)
     public String handle(AccessDeniedException e, Model model) {
         log.error("Access denied exception!");
         model.addAttribute("error", HttpStatus.UNAUTHORIZED.getReasonPhrase());
