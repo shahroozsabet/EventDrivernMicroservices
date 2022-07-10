@@ -19,6 +19,7 @@
         <module>elastic-query-web-client</module>
         <module>elastic-query-service-common</module>
         <module>elastic-query-web-client-common</module>
+        <module>reactive-elastic-query-service</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -54,9 +55,9 @@
             <id>confluent</id>
             <url>https://packages.confluent.io/maven/</url>
         </repository>
-	</repositories>
+    </repositories>
 
-	<dependencyManagement>
+    <dependencyManagement>
         <dependencies>
             <!-- LOCAL -->
             <dependency>
@@ -79,16 +80,16 @@
                 <artifactId>elastic-model</artifactId>
                 <version>${project.version}</version>
             </dependency>
-			<dependency>
-				<groupId>com.microservices.demo</groupId>
-				<artifactId>elastic-config</artifactId>
-				<version>${project.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.microservices.demo</groupId>
-				<artifactId>elastic-index-client</artifactId>
-				<version>${project.version}</version>
-			</dependency>
+            <dependency>
+                <groupId>com.microservices.demo</groupId>
+                <artifactId>elastic-config</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.microservices.demo</groupId>
+                <artifactId>elastic-index-client</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 			<dependency>
 				<groupId>com.microservices.demo</groupId>
 				<artifactId>elastic-query-client</artifactId>
@@ -131,16 +132,16 @@
 				<version>${spring-boot.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter-test</artifactId>
-				<version>${spring-boot.version}</version>
-				<scope>test</scope>
-				<exclusions>
-					<exclusion>
-						<groupId>org.junit.vintage</groupId>
-						<artifactId>junit-vintage-engine</artifactId>
-					</exclusion>
-				</exclusions>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${spring-boot.version}</version>
+                <scope>test</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.junit.vintage</groupId>
+                        <artifactId>junit-vintage-engine</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
 
             <dependency>
@@ -196,16 +197,16 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
-				<version>${spring-boot.version}</version>
-			</dependency>
+                <version>${spring-boot.version}</version>
+            </dependency>
 
-			<dependency>
-				<groupId>org.twitter4j</groupId>
-				<artifactId>twitter4j-stream</artifactId>
-				<version>${twitter4j.version}</version>
-			</dependency>
+            <dependency>
+                <groupId>org.twitter4j</groupId>
+                <artifactId>twitter4j-stream</artifactId>
+                <version>${twitter4j.version}</version>
+            </dependency>
 
-			<dependency>
+            <dependency>
 				<groupId>org.projectlombok</groupId>
 				<artifactId>lombok</artifactId>
 				<version>${lombok.version}</version>

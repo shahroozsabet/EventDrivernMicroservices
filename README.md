@@ -3,4 +3,4 @@
   and enter your github password and url on bootstrap.yml file of config-server
 - Then run mvn install -DskipTests command
 - Then run docker-compose up command in docker-compose folder
-- Check query service and web client common modules, where we extracted common parts to new modules
+- Check reactive elastic query service, which is a new reactive query service
