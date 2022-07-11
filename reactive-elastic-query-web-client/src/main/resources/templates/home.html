@@ -4,7 +4,7 @@
     <h1>Query Client</h1>
     <div class="mx-auto mt-5">
         <form action="#" class="col-12" method="post" th:action="@{/query-by-text}"
-              th:object="${elasticQueryWebClientRequestModel}">
+              th:object="${elasticQueryClientRequestModel}">
             <div class="form-group">
                 <input class="form-control" id="text" placeholder="Enter text to search" th:field="*{text}" type="text">
                 <span th:errors="*{text}" th:if="${#fields.hasErrors('text')}"></span>
@@ -12,9 +12,9 @@
                     <input class="btn btn-dark" type="submit" value="Search">
                 </div>
             </div>
-            <div class="col-12" th:switch="${elasticQueryWebClientResponseModels}">
+            <div class="col-12" th:switch="${elasticQueryClientResponseModels}">
                 <h4 th:case="null">
-                    <span th:text="${error != null} ? ${error + '-' + error_description} : 'No results yet!'"/>
+                    <span th:text="${error != null} ? ${error} : 'No results yet!'"/>
                 </h4>
                 <div th:case="*">
                     <h4>Search results for '<span th:text="${searchText}"/>'</h4>
@@ -28,11 +28,11 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr th:each="elasticQueryWebClientResponseModel : ${elasticQueryWebClientResponseModels}">
-                            <th scope="row" th:text="${elasticQueryWebClientResponseModel.id}"></th>
-                            <td th:text="${elasticQueryWebClientResponseModel.userId}"></td>
-                            <td th:text="${elasticQueryWebClientResponseModel.text}"></td>
-                            <td th:text="${elasticQueryWebClientResponseModel.createdAt}"></td>
+                        <tr th:each="elasticQueryClientResponseModel : ${elasticQueryClientResponseModels}">
+                            <th scope="row" th:text="${elasticQueryClientResponseModel.id}"></th>
+                            <th th:text="${elasticQueryClientResponseModel.userId}"></th>
+                            <td th:text="${elasticQueryClientResponseModel.text}"></td>
+                            <td th:text="${elasticQueryClientResponseModel.createdAt}"></td>
                         </tr>
                         </tbody>
                     </table>
@@ -44,7 +44,4 @@
 </div>
 
 <div th:replace="footer"></div>
-
-
-
 
