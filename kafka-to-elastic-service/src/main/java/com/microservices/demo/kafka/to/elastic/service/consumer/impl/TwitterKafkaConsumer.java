@@ -68,7 +68,7 @@ public class TwitterKafkaConsumer implements KafkaConsumer<TwitterAvroModel> {
                         @Header(KafkaHeaders.RECEIVED_PARTITION_ID) List<Integer> partitions,
                         @Header(KafkaHeaders.OFFSET) List<Long> offsets) {
         LOG.info("{} number of message received with keys {}, partitions {} and offsets {}, " +
-                 "sending it to elastic: Thread id {}",
+                        "sending it to elastic: Thread id {}",
                 messages.size(),
                 keys.toString(),
                 partitions.toString(),

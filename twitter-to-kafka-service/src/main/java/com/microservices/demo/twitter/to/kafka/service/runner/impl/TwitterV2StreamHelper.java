@@ -48,11 +48,11 @@ public class TwitterV2StreamHelper {
     private final TwitterKafkaStatusListener twitterKafkaStatusListener;
 
     private static final String tweetAsRawJson = "{" +
-                                                 "\"created_at\":\"{0}\"," +
-                                                 "\"id\":\"{1}\"," +
-                                                 "\"text\":\"{2}\"," +
-                                                 "\"user\":{\"id\":\"{3}\"}" +
-                                                 "}";
+            "\"created_at\":\"{0}\"," +
+            "\"id\":\"{1}\"," +
+            "\"text\":\"{2}\"," +
+            "\"user\":{\"id\":\"{3}\"}" +
+            "}";
 
     private static final String TWITTER_STATUS_DATE_FORMAT = "EEE MMM dd HH:mm:ss zzz yyyy";
 
@@ -220,13 +220,13 @@ public class TwitterV2StreamHelper {
     }
 
     private String getFormattedTweet(String data) {
-        JSONObject jsonData = (JSONObject) new JSONObject(data).get("data");
+        JSONObject jsonData = (JSONObject)new JSONObject(data).get("data");
 
         String[] params = new String[]{
                 ZonedDateTime.parse(jsonData.get("created_at").toString()).withZoneSameInstant(ZoneId.of("UTC"))
                         .format(DateTimeFormatter.ofPattern(TWITTER_STATUS_DATE_FORMAT, Locale.ENGLISH)),
                 jsonData.get("id").toString(),
-                jsonData.get("text").toString().replaceAll("\"", "\\\\\""),
+                jsonData.get("text").toString().replaceAll("\"","\\\\\""),
                 jsonData.get("author_id").toString(),
         };
         return formatTweetAsJsonWithParams(params);

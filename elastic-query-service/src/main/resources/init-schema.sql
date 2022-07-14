@@ -2,12 +2,14 @@ DROP TABLE IF EXISTS public.users CASCADE;
 
 CREATE TABLE public.users
 (
-    id        uuid NOT NULL,
-    username  character varying COLLATE pg_catalog."default",
+    id uuid NOT NULL,
+    username character varying COLLATE pg_catalog."default",
     firstname character varying COLLATE pg_catalog."default",
-    lastname  character varying COLLATE pg_catalog."default",
+    lastname character varying COLLATE pg_catalog."default",
     CONSTRAINT users_pkey PRIMARY KEY (id)
-) TABLESPACE pg_default;
+)
+
+    TABLESPACE pg_default;
 
 ALTER TABLE public.users
     OWNER to postgres;
@@ -16,10 +18,12 @@ DROP TABLE IF EXISTS public.documents CASCADE;
 
 CREATE TABLE public.documents
 (
-    id          uuid                                           NOT NULL,
+    id uuid NOT NULL,
     document_id character varying COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT documents_pkey PRIMARY KEY (id)
-) TABLESPACE pg_default;
+)
+
+    TABLESPACE pg_default;
 
 ALTER TABLE public.documents
     OWNER to postgres;
@@ -28,10 +32,10 @@ DROP TABLE IF EXISTS public.user_permissions CASCADE;
 
 CREATE TABLE public.user_permissions
 (
-    user_id            uuid NOT NULL,
-    document_id        uuid NOT NULL,
+    user_id uuid NOT NULL,
+    document_id uuid NOT NULL,
     user_permission_id uuid NOT NULL,
-    permission_type    character varying COLLATE pg_catalog."default",
+    permission_type character varying COLLATE pg_catalog."default",
     CONSTRAINT document_fk FOREIGN KEY (document_id)
         REFERENCES public.documents (id) MATCH SIMPLE
         ON UPDATE NO ACTION
@@ -41,7 +45,9 @@ CREATE TABLE public.user_permissions
         REFERENCES public.users (id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
-) TABLESPACE pg_default;
+)
+
+TABLESPACE pg_default;
 
 ALTER TABLE public.user_permissions
     OWNER to postgres;

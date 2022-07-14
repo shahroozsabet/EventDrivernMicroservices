@@ -49,9 +49,9 @@ public class TwitterV2KafkaStreamRunner implements StreamRunner {
             }
         } else {
             LOG.error("There was a problem getting your bearer token. " +
-                      "Please make sure you set the TWITTER_BEARER_TOKEN environment variable");
+                    "Please make sure you set the TWITTER_BEARER_TOKEN environment variable");
             throw new RuntimeException("There was a problem getting your bearer token. +" +
-                                       "Please make sure you set the TWITTER_BEARER_TOKEN environment variable");
+                    "Please make sure you set the TWITTER_BEARER_TOKEN environment variable");
         }
     }
 

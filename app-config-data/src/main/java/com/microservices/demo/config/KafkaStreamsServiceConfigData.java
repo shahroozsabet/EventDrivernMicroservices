@@ -8,6 +8,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ConfigurationProperties(prefix = "kafka-streams-service")
 public class KafkaStreamsServiceConfigData {
-    private String version;
-    private String customAudience;
+	private String version;
+	private String customAudience;
 }

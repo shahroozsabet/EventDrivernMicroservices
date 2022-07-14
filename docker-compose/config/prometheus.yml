@@ -2,22 +2,22 @@ scrape_configs:
   - job_name: 'prometheus'
     scrape_interval: 1m
     static_configs:
-      - targets: [ 'localhost:9090' ]
+      - targets: ['localhost:9090']
   - job_name: 'grafana'
     scrape_interval: 1m
     metrics_path: '/metrics'
     static_configs:
-      - targets: [ 'grafana:3000' ]
+      - targets: ['grafana:3000']
   - job_name: 'gateway-service'
     scrape_interval: 1m
     metrics_path: '/actuator/metrics'
     static_configs:
-      - targets: [ 'gateway-service:9092' ]
+      - targets: ['gateway-service:9092']
   - job_name: 'elastic-query-service-1'
     scrape_interval: 1m
     metrics_path: '/actuator/metrics'
     static_configs:
-      - targets: [ 'elastic-query-service-1:8183' ]
+      - targets: ['elastic-query-service-1:8183']
   - job_name: 'elastic-query-service-2'
     scrape_interval: 1m
     metrics_path: '/actuator/metrics'
@@ -27,9 +27,9 @@ scrape_configs:
     scrape_interval: 1m
     metrics_path: '/actuator/metrics'
     static_configs:
-      - targets: [ 'kafka-streams-service:8187' ]
+      - targets: ['kafka-streams-service:8187']
   - job_name: 'analytics-service'
     scrape_interval: 1m
     metrics_path: '/actuator/metrics'
     static_configs:
-      - targets: [ 'analytics-service:8188' ]
+      - targets: ['analytics-service:8188']

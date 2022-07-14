@@ -26,7 +26,7 @@ services:
       - "./check-config-server-started.sh:/usr/local/bin/check-config-server-started.sh"
       - "./check-keycloak-server-started.sh:/usr/local/bin/check-keycloak-server-started.sh"
     user: root
-    entrypoint: [ "check-config-server-started.sh" ]
+    entrypoint: ["check-config-server-started.sh"]
     depends_on:
       - config-server
       - kafka-broker-1
@@ -59,7 +59,7 @@ services:
       - "./docker-logs:/workspace/kafka-to-elastic-service/logs"
       - "./check-kafka-topics-created.sh:/usr/local/bin/check-kafka-topics-created.sh"
     user: root
-    entrypoint: [ "check-kafka-topics-created.sh" ]
+    entrypoint: ["check-kafka-topics-created.sh"]
     depends_on:
       - config-server
       - twitter-to-kafka-service
