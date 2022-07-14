@@ -9,6 +9,10 @@ volumes:
 services:
   postgres:
     image: postgres
+    container_name: postgres
+    hostname: postgres
+    ports:
+      - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     environment:
@@ -17,7 +21,8 @@ services:
       - "POSTGRES_PASSWORD=keycloak"
   pgadmin:
     image: dpage/pgadmin4
-    container_name: pgadmin4_container
+    container_name: pgadmin4
+    hostname: pgadmin4
     ports:
       - "5050:80"
     environment:
@@ -27,6 +32,7 @@ services:
       - pgadmin_data:/var/lib/pgadmin
   keycloak-authorization-server:
     image: quay.io/keycloak/keycloak:${KEYCLOAK_VERSION:-latest}
+    container_name: keycloak
     hostname: keycloak-server
     ports:
       - "8081:8081"
