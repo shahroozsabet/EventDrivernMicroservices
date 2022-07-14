@@ -1,4 +1,4 @@
-version: '3.7'
+version: '3.8'
 
 volumes:
   postgres_data:
@@ -15,10 +15,14 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+      - ./postgres_init/01-init.sh:/docker-entrypoint-initdb.d/init-db.sh # used only first time container is built to create database and users
     environment:
-      - "POSTGRES_DB=keycloak"
-      - "POSTGRES_USER=keycloak"
-      - "POSTGRES_PASSWORD=keycloak"
+      - "POSTGRES_USER=postgres"
+      - "POSTGRES_PASSWORD=admin"
+      - "KEYCLOAK_DB=keycloak"
+      - "KEYCLOAK_DB_USER=keycloak"
+      - "KEYCLOAK_DB_PASSWORD=keycloak"
+      - "KEYCLOAK_DB_SCHEMA=keycloak"
   pgadmin:
     image: dpage/pgadmin4
     container_name: pgadmin4
