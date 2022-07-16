@@ -8,6 +8,7 @@ CREATE TABLE public.users
     lastname  character varying COLLATE pg_catalog."default",
     CONSTRAINT users_pkey PRIMARY KEY (id)
 )
+
     TABLESPACE pg_default;
 
 ALTER TABLE public.users

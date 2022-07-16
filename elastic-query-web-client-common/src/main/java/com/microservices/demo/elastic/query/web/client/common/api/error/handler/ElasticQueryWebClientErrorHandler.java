@@ -65,4 +65,5 @@ public class ElasticQueryWebClientErrorHandler {
         return "home";
     }
 
+
 }
