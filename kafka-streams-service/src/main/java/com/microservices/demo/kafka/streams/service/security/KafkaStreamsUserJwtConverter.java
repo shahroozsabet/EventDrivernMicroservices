@@ -1,4 +1,4 @@
-package com.microservices.demo.elastic.query.service.security;
+package com.microservices.demo.kafka.streams.service.security;
 
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.security.authentication.AbstractAuthenticationToken;
@@ -8,13 +8,17 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.oauth2.jwt.Jwt;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
-import static com.microservices.demo.elastic.query.service.Constants.NA;
+import static com.microservices.demo.kafka.streams.service.Constants.NA;
 
 
-public class TwitterQueryUserJwtConverter implements Converter<Jwt, AbstractAuthenticationToken> {
+public class KafkaStreamsUserJwtConverter implements Converter<Jwt, AbstractAuthenticationToken> {
     private static final String REALM_ACCESS_CLAIM = "realm_access";
     private static final String ROLES_CLAIM = "roles";
     private static final String SCOPE_CLAIM = "scope";
@@ -23,20 +27,19 @@ public class TwitterQueryUserJwtConverter implements Converter<Jwt, AbstractAuth
     private static final String DEFAULT_SCOPE_PREFIX = "SCOPE_";
     private static final String SCOPE_SEPARATOR = " ";
 
+    private final KafkaStreamsUserDetailsService kafkaStreamsUserDetailsService;
 
-    private final TwitterQueryUserDetailsService twitterQueryUserDetailsService;
-
-    public TwitterQueryUserJwtConverter(TwitterQueryUserDetailsService userDetailsService) {
-        this.twitterQueryUserDetailsService = userDetailsService;
+    public KafkaStreamsUserJwtConverter(KafkaStreamsUserDetailsService kafkaStreamsUserDetailsService) {
+        this.kafkaStreamsUserDetailsService = kafkaStreamsUserDetailsService;
     }
 
     @Override
     public AbstractAuthenticationToken convert(Jwt jwt) {
         Collection<GrantedAuthority> authoritiesFromJwt = getAuthoritiesFromJwt(jwt);
         return Optional.ofNullable(
-                        twitterQueryUserDetailsService.loadUserByUsername(jwt.getClaimAsString(USERNAME_CLAIM)))
+                kafkaStreamsUserDetailsService.loadUserByUsername(jwt.getClaimAsString(USERNAME_CLAIM)))
                 .map(userDetails -> {
-                    ((TwitterQueryUser) userDetails).setAuthorities(authoritiesFromJwt);
+                    ((KafkaStreamsUser) userDetails).setAuthorities(authoritiesFromJwt);
                     return new UsernamePasswordAuthenticationToken(userDetails, NA, authoritiesFromJwt);
                 })
                 .orElseThrow(() -> new BadCredentialsException("User could not be found!"));

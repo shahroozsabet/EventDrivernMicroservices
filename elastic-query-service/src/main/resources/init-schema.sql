@@ -22,6 +22,7 @@ CREATE TABLE public.documents
     document_id character varying COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT documents_pkey PRIMARY KEY (id)
 )
+
     TABLESPACE pg_default;
 
 ALTER TABLE public.documents
