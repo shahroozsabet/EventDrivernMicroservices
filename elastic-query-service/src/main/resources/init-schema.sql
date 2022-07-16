@@ -7,7 +7,8 @@ CREATE TABLE public.users
     firstname character varying COLLATE pg_catalog."default",
     lastname  character varying COLLATE pg_catalog."default",
     CONSTRAINT users_pkey PRIMARY KEY (id)
-) TABLESPACE pg_default;
+)
+    TABLESPACE pg_default;
 
 ALTER TABLE public.users
     OWNER to postgres;
@@ -19,7 +20,8 @@ CREATE TABLE public.documents
     id          uuid                                           NOT NULL,
     document_id character varying COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT documents_pkey PRIMARY KEY (id)
-) TABLESPACE pg_default;
+)
+    TABLESPACE pg_default;
 
 ALTER TABLE public.documents
     OWNER to postgres;
@@ -41,14 +43,15 @@ CREATE TABLE public.user_permissions
         REFERENCES public.users (id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
-) TABLESPACE pg_default;
+)
+    TABLESPACE pg_default;
 
 ALTER TABLE public.user_permissions
     OWNER to postgres;
 
 CREATE INDEX "fki_USER_FK"
     ON public.user_permissions USING btree
-    (user_id ASC NULLS LAST)
+        (user_id ASC NULLS LAST)
     TABLESPACE pg_default;
 
 CREATE INDEX fki_document_fk
