@@ -1,6 +1,5 @@
 package com.microservices.demo.elastic.query.web.client.common.api.error.handler;
 
-
 import com.microservices.demo.elastic.query.web.client.common.model.ElasticQueryWebClientRequestModel;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -18,10 +17,9 @@ import java.util.Map;
 @Slf4j
 public class ElasticQueryWebClientErrorHandler {
 
-
     @ExceptionHandler(AccessDeniedException.class)
     public String handle(AccessDeniedException e, Model model) {
-        log.error("Access denied exception!");
+        log.error("Access denied exception.", e);
         model.addAttribute("error", HttpStatus.UNAUTHORIZED.getReasonPhrase());
         model.addAttribute("error_description, You are not authorized to access this resource!");
         return "error";
@@ -29,7 +27,7 @@ public class ElasticQueryWebClientErrorHandler {
 
     @ExceptionHandler(IllegalArgumentException.class)
     public String handle(IllegalArgumentException e, Model model) {
-        log.error("Illegal argument exception!", e);
+        log.error("Illegal argument exception.", e);
         model.addAttribute("error", HttpStatus.BAD_REQUEST.getReasonPhrase());
         model.addAttribute("error_description", "Illegal argument exception!" + e.getMessage());
         return "error";
@@ -37,7 +35,7 @@ public class ElasticQueryWebClientErrorHandler {
 
     @ExceptionHandler(Exception.class)
     public String handle(Exception e, Model model) {
-        log.error("Internal server error!", e);
+        log.error("Internal server error.", e);
         model.addAttribute("error", HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase());
         model.addAttribute("error_description", "A server error occurred!");
         return "error";
@@ -45,16 +43,16 @@ public class ElasticQueryWebClientErrorHandler {
 
     @ExceptionHandler(RuntimeException.class)
     public String handle(RuntimeException e, Model model) {
-        log.error("Service runtime exception!", e);
+        log.error("Service runtime exception.", e);
         model.addAttribute("elasticQueryWebClientRequestModel", ElasticQueryWebClientRequestModel.builder().build());
-        model.addAttribute("error", "Could not get response! " + e.getMessage());
-        model.addAttribute("error_description", "Service runtime exception! " + e.getMessage());
+        model.addAttribute("error", "Could not get response. " + e.getMessage());
+        model.addAttribute("error_description", "Service runtime exception. " + e.getMessage());
         return "home";
     }
 
     @ExceptionHandler({BindException.class})
     public String handle(BindException e, Model model) {
-        log.error("Method argument validation exception!", e);
+        log.error("Method argument validation exception.", e);
         Map<String, String> errors = new HashMap<>();
         e.getBindingResult().getAllErrors().forEach(error ->
                 errors.put(((FieldError) error).getField(), error.getDefaultMessage()));

@@ -80,7 +80,7 @@ public class MockKafkaStreamRunner implements StreamRunner {
                     sleep(sleepTimeMs);
                 }
             } catch (TwitterException e) {
-                log.error("{}", e.getCause().getMessage(), e);
+                log.error("Error creating twitter status.", e);
             }
         });
     }

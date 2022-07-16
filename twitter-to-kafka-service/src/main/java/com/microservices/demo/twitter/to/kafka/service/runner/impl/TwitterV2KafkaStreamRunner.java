@@ -33,14 +33,14 @@ public class TwitterV2KafkaStreamRunner implements StreamRunner {
                 twitterV2StreamHelper.setupRules(bearerToken, getRules());
                 twitterV2StreamHelper.connectStream(bearerToken);
             } catch (IOException | URISyntaxException e) {
-                log.error("Error streaming tweets: {}", e.getCause().getMessage(), e);
+                log.error("Error streaming tweets.", e);
                 throw new RuntimeException("Error streaming tweets.", e);
             }
         } else {
             log.error("{}", "There was a problem getting your bearer token.\n" +
-                    "                    Please make sure you set the TWITTER_BEARER_TOKEN environment variable");
+                            "                    Please make sure you set the TWITTER_BEARER_TOKEN environment variable");
             throw new RuntimeException("There was a problem getting your bearer token.\n" +
-                    "                    Please make sure you set the TWITTER_BEARER_TOKEN environment variable");
+                                       "                    Please make sure you set the TWITTER_BEARER_TOKEN environment variable");
         }
     }
 
