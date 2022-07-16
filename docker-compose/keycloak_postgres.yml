@@ -23,33 +23,35 @@ services:
       - "KEYCLOAK_DB_USER=keycloak"
       - "KEYCLOAK_DB_PASSWORD=keycloak"
       - "KEYCLOAK_DB_SCHEMA=keycloak"
-  pgadmin:
-    image: dpage/pgadmin4
-    container_name: pgadmin4
-    hostname: pgadmin4
-    ports:
-      - "5050:80"
-    environment:
-      PGADMIN_DEFAULT_EMAIL: shahrooz.sabet@gmail.com
-      PGADMIN_DEFAULT_PASSWORD: admin
-    volumes:
-      - pgadmin_data:/var/lib/pgadmin
-  keycloak-authorization-server:
-    image: quay.io/keycloak/keycloak:${KEYCLOAK_VERSION:-latest}
-    container_name: keycloak
-    hostname: keycloak-server
-    ports:
-      - "8081:8081"
-    environment:
-      - "KEYCLOAK_USER=admin"
-      - "KEYCLOAK_PASSWORD=admin"
-      - "KEYCLOAK_LOGLEVEL=DEBUG"
-      - "JAVA_OPTS=-Djboss.http.port=8081"
-      - "DB_VENDOR=POSTGRES"
-      - "DB_ADDR=postgres"
-      - "DB_DATABASE=keycloak"
-      - "DB_USER=keycloak"
-      - "DB_SCHEMA=public"
-      - "DB_PASSWORD=keycloak"
-    depends_on:
-      - postgres
+    networks:
+      - ${GLOBAL_NETWORK:-postgres}
+#  pgadmin:
+#    image: dpage/pgadmin4
+#    container_name: pgadmin4
+#    hostname: pgadmin4
+#    ports:
+#      - "5050:80"
+#    environment:
+#      PGADMIN_DEFAULT_EMAIL: shahrooz.sabet@gmail.com
+#      PGADMIN_DEFAULT_PASSWORD: admin
+#    volumes:
+#      - pgadmin_data:/var/lib/pgadmin
+#  keycloak-authorization-server:
+#    image: quay.io/keycloak/keycloak:${KEYCLOAK_VERSION:-latest}
+#    container_name: keycloak
+#    hostname: keycloak-server
+#    ports:
+#      - "8081:8081"
+#    environment:
+#      - "KEYCLOAK_USER=admin"
+#      - "KEYCLOAK_PASSWORD=admin"
+#      - "KEYCLOAK_LOGLEVEL=DEBUG"
+#      - "JAVA_OPTS=-Djboss.http.port=8081"
+#      - "DB_VENDOR=POSTGRES"
+#      - "DB_ADDR=postgres"
+#      - "DB_DATABASE=keycloak"
+#      - "DB_USER=keycloak"
+#      - "DB_SCHEMA=public"
+#      - "DB_PASSWORD=keycloak"
+#    depends_on:
+#      - postgres
