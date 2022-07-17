@@ -14,10 +14,9 @@ import org.apache.avro.specific.SpecificData;
 public class TwitterAnalyticsAvroModel extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = -3147340086224479915L;
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"TwitterAnalyticsAvroModel\",\"namespace\":\"com.microservices.demo.kafka.avro.model\",\"fields\":[{\"name\":\"word\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"wordCount\",\"type\":[\"null\",\"long\"]},{\"name\":\"createdAt\",\"type\":[\"null\",\"long\"],\"logicalType\":[\"null\",\"date\"]}]}");
+  private static SpecificData MODEL$ = new SpecificData();
   private static final BinaryMessageEncoder<TwitterAnalyticsAvroModel> ENCODER =
           new BinaryMessageEncoder<TwitterAnalyticsAvroModel>(MODEL$, SCHEMA$);
-
-  private static SpecificData MODEL$ = new SpecificData();
   private static final BinaryMessageDecoder<TwitterAnalyticsAvroModel> DECODER =
           new BinaryMessageDecoder<TwitterAnalyticsAvroModel>(MODEL$, SCHEMA$);
   @SuppressWarnings("unchecked")
@@ -26,7 +25,6 @@ public class TwitterAnalyticsAvroModel extends org.apache.avro.specific.Specific
 
   /**
    * Return the BinaryMessageEncoder instance used by this class.
-   *
    * @return the message encoder used by this class
    */
   public static BinaryMessageEncoder<TwitterAnalyticsAvroModel> getEncoder() {
@@ -35,7 +33,6 @@ public class TwitterAnalyticsAvroModel extends org.apache.avro.specific.Specific
 
   /**
    * Return the BinaryMessageDecoder instance used by this class.
-   *
    * @return the message decoder used by this class
    */
   public static BinaryMessageDecoder<TwitterAnalyticsAvroModel> getDecoder() {
@@ -67,9 +64,14 @@ public class TwitterAnalyticsAvroModel extends org.apache.avro.specific.Specific
   public TwitterAnalyticsAvroModel() {
   }
 
+  public static org.apache.avro.Schema getClassSchema() {
+    return SCHEMA$;
+  }
+
   /**
    * All-args constructor.
-   * @param word The new value for word
+   *
+   * @param word      The new value for word
    * @param wordCount The new value for wordCount
    * @param createdAt The new value for createdAt
    */
@@ -77,10 +79,6 @@ public class TwitterAnalyticsAvroModel extends org.apache.avro.specific.Specific
     this.word = word;
     this.wordCount = wordCount;
     this.createdAt = createdAt;
-  }
-
-  public static org.apache.avro.Schema getClassSchema() {
-    return SCHEMA$;
   }
 
   /**
@@ -174,7 +172,6 @@ public class TwitterAnalyticsAvroModel extends org.apache.avro.specific.Specific
 
   /**
    * Sets the value of the 'createdAt' field.
-   *
    * @param value the value to set.
    */
   public void setCreatedAt(java.lang.Long value) {
@@ -183,7 +180,6 @@ public class TwitterAnalyticsAvroModel extends org.apache.avro.specific.Specific
 
   /**
    * Serializes this TwitterAnalyticsAvroModel to a ByteBuffer.
-   *
    * @return a buffer holding the serialized data for this instance
    * @throws java.io.IOException if this instance could not be serialized
    */
@@ -195,9 +191,7 @@ public class TwitterAnalyticsAvroModel extends org.apache.avro.specific.Specific
     return MODEL$;
   }
 
-  public org.apache.avro.Schema getSchema() {
-    return SCHEMA$;
-  }
+  public org.apache.avro.Schema getSchema() { return SCHEMA$; }
 
   // Used by DatumWriter.  Applications should not call.
   public java.lang.Object get(int field$) {
@@ -399,7 +393,7 @@ public class TwitterAnalyticsAvroModel extends org.apache.avro.specific.Specific
     /**
       * Gets the value of the 'word' field.
       * @return The value.
-     */
+      */
     public java.lang.String getWord() {
       return word;
     }
@@ -407,7 +401,7 @@ public class TwitterAnalyticsAvroModel extends org.apache.avro.specific.Specific
 
     /**
      * Sets the value of the 'word' field.
-      * @param value The value of 'word'.
+     * @param value The value of 'word'.
       * @return This builder.
       */
     public com.microservices.demo.kafka.avro.model.TwitterAnalyticsAvroModel.Builder setWord(java.lang.String value) {
@@ -419,8 +413,8 @@ public class TwitterAnalyticsAvroModel extends org.apache.avro.specific.Specific
 
     /**
      * Checks whether the 'word' field has been set.
-      * @return True if the 'word' field has been set, false otherwise.
-     */
+     * @return True if the 'word' field has been set, false otherwise.
+      */
     public boolean hasWord() {
       return fieldSetFlags()[0];
     }
@@ -439,7 +433,7 @@ public class TwitterAnalyticsAvroModel extends org.apache.avro.specific.Specific
     /**
       * Gets the value of the 'wordCount' field.
       * @return The value.
-     */
+      */
     public java.lang.Long getWordCount() {
       return wordCount;
     }
@@ -447,7 +441,7 @@ public class TwitterAnalyticsAvroModel extends org.apache.avro.specific.Specific
 
     /**
      * Sets the value of the 'wordCount' field.
-      * @param value The value of 'wordCount'.
+     * @param value The value of 'wordCount'.
       * @return This builder.
       */
     public com.microservices.demo.kafka.avro.model.TwitterAnalyticsAvroModel.Builder setWordCount(java.lang.Long value) {
@@ -459,8 +453,8 @@ public class TwitterAnalyticsAvroModel extends org.apache.avro.specific.Specific
 
     /**
      * Checks whether the 'wordCount' field has been set.
-      * @return True if the 'wordCount' field has been set, false otherwise.
-     */
+     * @return True if the 'wordCount' field has been set, false otherwise.
+      */
     public boolean hasWordCount() {
       return fieldSetFlags()[1];
     }
@@ -479,7 +473,7 @@ public class TwitterAnalyticsAvroModel extends org.apache.avro.specific.Specific
     /**
       * Gets the value of the 'createdAt' field.
       * @return The value.
-     */
+      */
     public java.lang.Long getCreatedAt() {
       return createdAt;
     }
@@ -487,7 +481,7 @@ public class TwitterAnalyticsAvroModel extends org.apache.avro.specific.Specific
 
     /**
      * Sets the value of the 'createdAt' field.
-      * @param value The value of 'createdAt'.
+     * @param value The value of 'createdAt'.
       * @return This builder.
       */
     public com.microservices.demo.kafka.avro.model.TwitterAnalyticsAvroModel.Builder setCreatedAt(java.lang.Long value) {
@@ -500,7 +494,7 @@ public class TwitterAnalyticsAvroModel extends org.apache.avro.specific.Specific
     /**
      * Checks whether the 'createdAt' field has been set.
      * @return True if the 'createdAt' field has been set, false otherwise.
-     */
+      */
     public boolean hasCreatedAt() {
       return fieldSetFlags()[2];
     }
@@ -508,7 +502,7 @@ public class TwitterAnalyticsAvroModel extends org.apache.avro.specific.Specific
 
     /**
      * Clears the value of the 'createdAt' field.
-     * @return This builder.
+      * @return This builder.
       */
     public com.microservices.demo.kafka.avro.model.TwitterAnalyticsAvroModel.Builder clearCreatedAt() {
       createdAt = null;
