@@ -1,7 +1,7 @@
-package com.microservices.demo.elastic.query.service.config;
+package com.microservices.demo.kafka.streams.service.config;
 
-import com.microservices.demo.elastic.query.service.security.TwitterQueryUserDetailsService;
-import com.microservices.demo.elastic.query.service.security.TwitterQueryUserJwtConverter;
+import com.microservices.demo.kafka.streams.service.security.KafkaStreamsUserDetailsService;
+import com.microservices.demo.kafka.streams.service.security.KafkaStreamsUserJwtConverter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -24,7 +24,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @RequiredArgsConstructor
 public class WebSecurityConfig {
 
-    private final TwitterQueryUserDetailsService twitterQueryUserDetailsService;
+    private final KafkaStreamsUserDetailsService kafkaStreamsUserDetailsService;
     private final OAuth2ResourceServerProperties oAuth2ResourceServerProperties;
 
     @Value("${security.paths-to-ignore}")
@@ -44,17 +44,8 @@ public class WebSecurityConfig {
                 .and()
                 .oauth2ResourceServer()
                 .jwt()
-                .jwtAuthenticationConverter(twitterQueryUserJwtConverter());
+                .jwtAuthenticationConverter(kafkaStreamsUserJwtAuthConverter());
         return http.build();
-    }
-
-    @Bean
-    JwtDecoder jwtDecoder(@Qualifier("elastic-query-service-audience-validator") OAuth2TokenValidator<Jwt> audienceValidator) {
-        NimbusJwtDecoder jwtDecoder = JwtDecoders.fromOidcIssuerLocation(oAuth2ResourceServerProperties.getJwt().getIssuerUri());
-        OAuth2TokenValidator<Jwt> withIssuer = JwtValidators.createDefaultWithIssuer(oAuth2ResourceServerProperties.getJwt().getIssuerUri());
-        OAuth2TokenValidator<Jwt> withAudience = new DelegatingOAuth2TokenValidator<>(withIssuer, audienceValidator);
-        jwtDecoder.setJwtValidator(withAudience);
-        return jwtDecoder;
     }
 
     @Bean
@@ -63,8 +54,22 @@ public class WebSecurityConfig {
     }
 
     @Bean
-    Converter<Jwt, ? extends AbstractAuthenticationToken> twitterQueryUserJwtConverter() {
-        return new TwitterQueryUserJwtConverter(twitterQueryUserDetailsService);
+    JwtDecoder jwtDecoder(@Qualifier("kafka-streams-service-audience-validator")
+                          OAuth2TokenValidator<Jwt> audienceValidator) {
+        NimbusJwtDecoder jwtDecoder = JwtDecoders.fromOidcIssuerLocation(
+                oAuth2ResourceServerProperties.getJwt().getIssuerUri());
+        OAuth2TokenValidator<Jwt> withIssuer =
+                JwtValidators.createDefaultWithIssuer(
+                        oAuth2ResourceServerProperties.getJwt().getIssuerUri());
+        OAuth2TokenValidator<Jwt> withAudience =
+                new DelegatingOAuth2TokenValidator<>(withIssuer, audienceValidator);
+        jwtDecoder.setJwtValidator(withAudience);
+        return jwtDecoder;
+    }
+
+    @Bean
+    Converter<Jwt, ? extends AbstractAuthenticationToken> kafkaStreamsUserJwtAuthConverter() {
+        return new KafkaStreamsUserJwtConverter(kafkaStreamsUserDetailsService);
     }
 
 }

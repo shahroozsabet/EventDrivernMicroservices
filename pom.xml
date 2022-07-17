@@ -22,6 +22,7 @@
         <module>reactive-elastic-query-service</module>
         <module>reactive-elastic-query-web-client</module>
         <module>elastic-query-web-client-2</module>
+        <module>kafka-streams-service</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -46,12 +47,15 @@
         <spring-retry.version>1.3.3</spring-retry.version>
         <spring-cloud.version>3.1.3</spring-cloud.version>
         <spring-cloud-dependencies.version>2021.0.3</spring-cloud-dependencies.version>
-        <kafka-avro-serializer.version>7.1.1</kafka-avro-serializer.version>
         <elastic.version>7.17.4</elastic.version>
-        <avro.version>1.11.0</avro.version>
         <httpclient.version>4.5.13</httpclient.version>
         <json.version>20220320</json.version>
         <springdoc-openapi-ui.version>1.6.9</springdoc-openapi-ui.version>
+        <kafka-streams.version>3.2.0</kafka-streams.version>
+        <kafka-clients.version>3.2.0</kafka-clients.version>
+        <kafka-avro-serializer.version>7.1.1</kafka-avro-serializer.version>
+        <kafka-streams-avro-serde.version>7.1.1</kafka-streams-avro-serde.version>
+        <avro.version>1.11.0</avro.version>
     </properties>
 
     <dependencies>
@@ -259,6 +263,21 @@
                 <groupId>org.postgresql</groupId>
                 <artifactId>postgresql</artifactId>
                 <version>${postgresql.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.confluent</groupId>
+                <artifactId>kafka-streams-avro-serde</artifactId>
+                <version>${kafka-streams-avro-serde.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.kafka</groupId>
+                <artifactId>kafka-streams</artifactId>
+                <version>${kafka-streams.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.kafka</groupId>
+                <artifactId>kafka-clients</artifactId>
+                <version>${kafka-clients.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
