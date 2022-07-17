@@ -251,9 +251,9 @@
 				<version>${springdoc-openapi-ui.version}</version>
 			</dependency>
 
-			<dependency>
-				<groupId>io.confluent</groupId>
-				<artifactId>kafka-avro-serializer</artifactId>
+            <dependency>
+                <groupId>io.confluent</groupId>
+                <artifactId>kafka-avro-serializer</artifactId>
                 <version>${kafka-avro-serializer.version}</version>
                 <exclusions>
                     <exclusion>

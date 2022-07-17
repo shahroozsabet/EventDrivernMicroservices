@@ -5,7 +5,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/agelenler/spring-cloud-config-server-repository
+          uri: https://github.com/agelenler/spring-cloud-config-server-repository-2
           default-label: main
           username: agelenler
           password: ****
