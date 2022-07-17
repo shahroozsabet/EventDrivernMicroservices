@@ -33,9 +33,9 @@
     <groupId>com.microservices.demo</groupId>
     <artifactId>microservices-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-	<name>microservices-demo</name>
-	<description>Microservices demo project for Spring Boot</description>
-	<packaging>pom</packaging>
+    <name>microservices-demo</name>
+    <description>Microservices demo project for Spring Boot</description>
+    <packaging>pom</packaging>
 
     <properties>
         <java.version>11</java.version>
@@ -254,16 +254,16 @@
 			<dependency>
 				<groupId>io.confluent</groupId>
 				<artifactId>kafka-avro-serializer</artifactId>
-				<version>${kafka-avro-serializer.version}</version>
-				<exclusions>
-					<exclusion>
-						<groupId>org.slf4j</groupId>
-						<artifactId>slf4j-log4j12</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>log4j</groupId>
-						<artifactId>log4j</artifactId>
-					</exclusion>
+                <version>${kafka-avro-serializer.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-log4j12</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>log4j</groupId>
+                        <artifactId>log4j</artifactId>
+                    </exclusion>
                     <exclusion>
                         <groupId>io.swagger</groupId>
                         <artifactId>swagger-annotations</artifactId>
