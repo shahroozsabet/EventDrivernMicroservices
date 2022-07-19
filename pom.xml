@@ -11,16 +11,16 @@
         <module>kafka/kafka-producer</module>
         <module>kafka/kafka-consumer</module>
         <module>common-config</module>
-		<module>config-server</module>
-		<module>kafka-to-elastic-service</module>
-		<module>elastic</module>
-		<module>common-util</module>
-		<module>elastic-query-service</module>
-		<module>elastic-query-web-client</module>
-		<module>elastic-query-service-common</module>
-		<module>elastic-query-web-client-common</module>
-		<module>reactive-elastic-query-service</module>
-		<module>reactive-elastic-query-web-client</module>
+        <module>config-server</module>
+        <module>kafka-to-elastic-service</module>
+        <module>elastic</module>
+        <module>common-util</module>
+        <module>elastic-query-service</module>
+        <module>elastic-query-web-client</module>
+        <module>elastic-query-service-common</module>
+        <module>elastic-query-web-client-common</module>
+        <module>reactive-elastic-query-service</module>
+        <module>reactive-elastic-query-web-client</module>
 		<module>elastic-query-web-client-2</module>
 		<module>kafka-streams-service</module>
 		<module>analytics-service</module>
