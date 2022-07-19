@@ -3,4 +3,4 @@
   and enter your github password and url on bootstrap.yml file of config-server
 - Then run mvn install -DskipTests command
 - Then run docker-compose up command in docker-compose folder
-- Check analytics-service, where we added base spring boot project for this service
+- Check analytics-service, where we completed the service to insert data into postgreSql

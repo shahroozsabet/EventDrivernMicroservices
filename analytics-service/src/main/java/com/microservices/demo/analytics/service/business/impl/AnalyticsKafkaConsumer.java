@@ -1,5 +1,8 @@
 package com.microservices.demo.analytics.service.business.impl;
 
+import com.microservices.demo.analytics.service.dataaccess.entity.AnalyticsEntity;
+import com.microservices.demo.analytics.service.dataaccess.repository.AnalyticsRepository;
+import com.microservices.demo.analytics.service.transformer.AvroToDbEntityModelTransformer;
 import com.microservices.demo.config.KafkaConfigData;
 import com.microservices.demo.kafka.admin.client.KafkaAdminClient;
 import com.microservices.demo.kafka.avro.model.TwitterAnalyticsAvroModel;
@@ -28,12 +31,21 @@ public class AnalyticsKafkaConsumer implements KafkaConsumer<TwitterAnalyticsAvr
 
     private final KafkaConfigData kafkaConfig;
 
+    private final AvroToDbEntityModelTransformer avroToDbEntityModelTransformer;
+
+    private final AnalyticsRepository analyticsRepository;
+
+
     public AnalyticsKafkaConsumer(KafkaListenerEndpointRegistry registry,
                                   KafkaAdminClient adminClient,
-                                  KafkaConfigData config) {
+                                  KafkaConfigData config,
+                                  AvroToDbEntityModelTransformer transformer,
+                                  AnalyticsRepository repository) {
         this.kafkaListenerEndpointRegistry = registry;
         this.kafkaAdminClient = adminClient;
         this.kafkaConfig = config;
+        this.avroToDbEntityModelTransformer = transformer;
+        this.analyticsRepository = repository;
     }
 
     @EventListener
@@ -46,9 +58,14 @@ public class AnalyticsKafkaConsumer implements KafkaConsumer<TwitterAnalyticsAvr
     @Override
     @KafkaListener(id = "twitterAnalyticsTopicListener", topics = "${kafka-config.topic-name}", autoStartup = "false")
     public void receive(@Payload List<TwitterAnalyticsAvroModel> messages,
-                        @Header(KafkaHeaders.RECEIVED_MESSAGE_KEY) List<Long> keys,
+                        @Header(KafkaHeaders.RECEIVED_MESSAGE_KEY) List<String> keys,
                         @Header(KafkaHeaders.RECEIVED_PARTITION_ID) List<Integer> partitions,
                         @Header(KafkaHeaders.OFFSET) List<Long> offsets) {
+        LOG.info("{} number of messages received, sending it to database", messages.size());
+        List<AnalyticsEntity> twitterAnalyticsEntities = avroToDbEntityModelTransformer.getEntityModel(messages);
+        analyticsRepository.batchPersist(twitterAnalyticsEntities);
+        LOG.info("{} number of messaged send to database", twitterAnalyticsEntities.size());
+
     }
 
 }
