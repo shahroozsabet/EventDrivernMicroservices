@@ -44,11 +44,16 @@ public class AnalyticsKafkaConsumer implements KafkaConsumer<TwitterAnalyticsAvr
                         @Header(KafkaHeaders.RECEIVED_MESSAGE_KEY) List<String> keys,
                         @Header(KafkaHeaders.RECEIVED_PARTITION_ID) List<Integer> partitions,
                         @Header(KafkaHeaders.OFFSET) List<Long> offsets) {
-        log.info("{} number of messages received, sending it to database", messages.size());
+        log.info("{} number of message received with keys {}, partitions {} and offsets {}, " +
+                 "sending it to database: Thread id {}",
+                messages.size(),
+                keys.toString(),
+                partitions.toString(),
+                offsets.toString(),
+                Thread.currentThread().getId());
         List<AnalyticsEntity> twitterAnalyticsEntities = avroToDbEntityModelTransformer.getEntityModel(messages);
         analyticsRepository.batchPersist(twitterAnalyticsEntities);
         log.info("{} number of messaged send to database", twitterAnalyticsEntities.size());
-
     }
 
 }

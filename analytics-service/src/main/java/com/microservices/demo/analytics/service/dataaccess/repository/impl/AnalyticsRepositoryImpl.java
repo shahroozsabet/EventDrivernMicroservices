@@ -38,7 +38,7 @@ public class AnalyticsRepositoryImpl<T extends BaseEntity<PK>, PK> implements An
         int batchCnt = 0;
         for (S entity : entities) {
             log.trace("Persisting entity with id {}", entity.getId());
-            this.em.persist(entities);
+            this.em.persist(entity);
             batchCnt++;
             if (batchCnt % batchSize == 0) {
                 this.em.flush();

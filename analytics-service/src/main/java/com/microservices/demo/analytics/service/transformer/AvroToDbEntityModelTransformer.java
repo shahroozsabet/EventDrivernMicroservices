@@ -11,6 +11,8 @@ import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.List;
 
+import static java.util.stream.Collectors.toList;
+
 @Component
 @RequiredArgsConstructor
 public class AvroToDbEntityModelTransformer {
@@ -23,7 +25,7 @@ public class AvroToDbEntityModelTransformer {
                         idGenerator.generateId()
                         , avroModel.getWord()
                         , avroModel.getWordCount()
-                        , LocalDateTime.ofInstant(Instant.ofEpochMilli(avroModel.getCreatedAt()), ZoneOffset.UTC)))
-                .toList();
+                        , LocalDateTime.ofInstant(Instant.ofEpochSecond(avroModel.getCreatedAt()), ZoneOffset.UTC)))
+                .collect(toList());
     }
 }

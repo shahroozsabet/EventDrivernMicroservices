@@ -3,8 +3,8 @@ version: '3.8'
 volumes:
   postgres_data:
     driver: local
-  pgadmin_data:
-    driver: local
+#  pgadmin_data:
+#    driver: local
 
 services:
   postgres:
@@ -16,6 +16,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./postgres_init/01-init.sh:/docker-entrypoint-initdb.d/init-db.sh # used only first time container is built to create database and users
+    command: [ "postgres", "-c", "log_statement=all" ]
     environment:
       - "POSTGRES_USER=postgres"
       - "POSTGRES_PASSWORD=admin"
@@ -25,19 +26,19 @@ services:
       - "KEYCLOAK_DB_SCHEMA=keycloak"
     networks:
       - ${GLOBAL_NETWORK:-postgres}
-  pgadmin:
-    image: dpage/pgadmin4
-    container_name: pgadmin4
-    hostname: pgadmin4
-    ports:
-      - "5050:80"
-    environment:
-      PGADMIN_DEFAULT_EMAIL: shahrooz.sabet@gmail.com
-      PGADMIN_DEFAULT_PASSWORD: admin
-    volumes:
-      - pgadmin_data:/var/lib/pgadmin
-    networks:
-      - ${GLOBAL_NETWORK:-postgres}
+#  pgadmin:
+#    image: dpage/pgadmin4
+#    container_name: pgadmin4
+#    hostname: pgadmin4
+#    ports:
+#      - "5050:80"
+#    environment:
+#      PGADMIN_DEFAULT_EMAIL: shahrooz.sabet@gmail.com
+#      PGADMIN_DEFAULT_PASSWORD: admin
+#    volumes:
+#      - pgadmin_data:/var/lib/pgadmin
+#    networks:
+#      - ${GLOBAL_NETWORK:-postgres}
 #  keycloak-authorization-server:
 #    image: quay.io/keycloak/keycloak:${KEYCLOAK_VERSION:-latest}
 #    container_name: keycloak
