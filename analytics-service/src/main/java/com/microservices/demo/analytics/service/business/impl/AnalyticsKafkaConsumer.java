@@ -1,6 +1,9 @@
 package com.microservices.demo.analytics.service.business.impl;
 
 import com.microservices.demo.analytics.service.business.KafkaConsumer;
+import com.microservices.demo.analytics.service.dataaccess.entity.AnalyticsEntity;
+import com.microservices.demo.analytics.service.dataaccess.repository.AnalyticsRepository;
+import com.microservices.demo.analytics.service.transformer.AvroToDbEntityModelTransformer;
 import com.microservices.demo.config.KafkaConfigData;
 import com.microservices.demo.kafka.admin.client.KafkaAdminClient;
 import com.microservices.demo.kafka.avro.model.TwitterAnalyticsAvroModel;
@@ -25,6 +28,8 @@ public class AnalyticsKafkaConsumer implements KafkaConsumer<TwitterAnalyticsAvr
     private final KafkaListenerEndpointRegistry kafkaListenerEndpointRegistry;
     private final KafkaAdminClient kafkaAdminClient;
     private final KafkaConfigData kafkaConfig;
+    private final AvroToDbEntityModelTransformer avroToDbEntityModelTransformer;
+    private final AnalyticsRepository analyticsRepository;
 
     @EventListener
     public void onAppStarted(ApplicationStartedEvent event) {
@@ -39,13 +44,11 @@ public class AnalyticsKafkaConsumer implements KafkaConsumer<TwitterAnalyticsAvr
                         @Header(KafkaHeaders.RECEIVED_MESSAGE_KEY) List<String> keys,
                         @Header(KafkaHeaders.RECEIVED_PARTITION_ID) List<Integer> partitions,
                         @Header(KafkaHeaders.OFFSET) List<Long> offsets) {
-        log.info("{} number of message received with keys {}, partitions {} and offsets {}, " +
-                 "sending it to database: Thread id {}",
-                messages.size(),
-                keys.toString(),
-                partitions.toString(),
-                offsets.toString(),
-                Thread.currentThread().getId());
+        log.info("{} number of messages received, sending it to database", messages.size());
+        List<AnalyticsEntity> twitterAnalyticsEntities = avroToDbEntityModelTransformer.getEntityModel(messages);
+        analyticsRepository.batchPersist(twitterAnalyticsEntities);
+        log.info("{} number of messaged send to database", twitterAnalyticsEntities.size());
+
     }
 
 }
