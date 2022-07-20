@@ -9,3 +9,8 @@ spring:
       uri: http://localhost:8888
       username: spring_cloud_user
       password: '{cipher}b14be053ea39a5280df111761723f074adbfe139e9523e39d4565504b58c6db2f9d6af10a9ac1b27da419f9c1a2602ff'
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
