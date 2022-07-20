@@ -14,10 +14,9 @@ import org.apache.avro.specific.SpecificData;
 public class TwitterAnalyticsAvroModel extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = -3147340086224479915L;
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"TwitterAnalyticsAvroModel\",\"namespace\":\"com.microservices.demo.kafka.avro.model\",\"fields\":[{\"name\":\"word\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"wordCount\",\"type\":[\"null\",\"long\"]},{\"name\":\"createdAt\",\"type\":[\"null\",\"long\"],\"logicalType\":[\"null\",\"date\"]}]}");
+  private static SpecificData MODEL$ = new SpecificData();
   private static final BinaryMessageEncoder<TwitterAnalyticsAvroModel> ENCODER =
           new BinaryMessageEncoder<TwitterAnalyticsAvroModel>(MODEL$, SCHEMA$);
-
-  private static SpecificData MODEL$ = new SpecificData();
   private static final BinaryMessageDecoder<TwitterAnalyticsAvroModel> DECODER =
           new BinaryMessageDecoder<TwitterAnalyticsAvroModel>(MODEL$, SCHEMA$);
   @SuppressWarnings("unchecked")
@@ -26,7 +25,6 @@ public class TwitterAnalyticsAvroModel extends org.apache.avro.specific.Specific
 
   /**
    * Return the BinaryMessageEncoder instance used by this class.
-   *
    * @return the message encoder used by this class
    */
   public static BinaryMessageEncoder<TwitterAnalyticsAvroModel> getEncoder() {
@@ -66,9 +64,14 @@ public class TwitterAnalyticsAvroModel extends org.apache.avro.specific.Specific
   public TwitterAnalyticsAvroModel() {
   }
 
+  public static org.apache.avro.Schema getClassSchema() {
+    return SCHEMA$;
+  }
+
   /**
    * All-args constructor.
-   * @param word The new value for word
+   *
+   * @param word      The new value for word
    * @param wordCount The new value for wordCount
    * @param createdAt The new value for createdAt
    */
@@ -76,10 +79,6 @@ public class TwitterAnalyticsAvroModel extends org.apache.avro.specific.Specific
     this.word = word;
     this.wordCount = wordCount;
     this.createdAt = createdAt;
-  }
-
-  public static org.apache.avro.Schema getClassSchema() {
-    return SCHEMA$;
   }
 
   /**
